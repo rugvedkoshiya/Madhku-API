@@ -45,7 +45,8 @@ SECRET_KEY=Your_Secret_Key
 -   Install necessary modules
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt # Windows
+pip3 install -r requirements.txt # Linux
 ```
 
 -   Run API with below command
