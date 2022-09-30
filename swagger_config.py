@@ -7,6 +7,7 @@ from flask_jwt_extended import JWTManager
 
 
 app = Flask(__name__)
+app.config['CORS_HEADERS'] = 'Content-Type'
 app.config["JWT_SECRET_KEY"] = SETTING.SECRET_KEY
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = False
 
@@ -29,6 +30,8 @@ def myconverter(o):
 def after_request(res):
     print(time.time() - g.start_time)
     try:
+        res.headers['Access-Control-Allow-Origin'] = '*'
+        res.headers['Access-Control-Allow-Credentials'] = 'true'
         if (res.get_data()).decode("utf-8") == "null\n":
             res.set_data(json.dumps(g.response, default=myconverter))
         return res

@@ -42,6 +42,12 @@ PORT=5000
 SECRET_KEY=Your_Secret_Key
 ```
 
+-   Install necessary modules
+
+```bash
+pip install -r requirements.txt
+```
+
 -   Run API with below command
 
 ```bash
